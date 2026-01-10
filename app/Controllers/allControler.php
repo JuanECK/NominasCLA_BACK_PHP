@@ -27,8 +27,8 @@ class AllControler {
 
     // public function index2(){
         
-    //     $conexionModelo = new Conexion();
-    //     return $conexionModelo -> query( 'SELECT * FROM `prueba` WHERE nombre_1 = "Juan"' );
+    //     // $conexionModelo = new CLA();
+    //     // return $conexionModelo -> query();
     // }
 
     // public function consulta(){
