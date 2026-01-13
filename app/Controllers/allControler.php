@@ -17,6 +17,11 @@ class AllControler {
         $conexionModelo = new CLA();
         return json_encode($conexionModelo -> SetInsertaEmpleado());
     }
+
+    public function insertaPropiedades(){
+        $conexionModelo = new CLA();
+        return json_encode($conexionModelo -> SetInsertaPropiedades());
+    }
     
     
     // public function index(){

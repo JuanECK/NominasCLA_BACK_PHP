@@ -6,6 +6,7 @@ use App\Controllers\AllControler;
 // Route::post('/inserta_empleado',[AllControler::class, 'inserta'] );
 
 Route::post('/inserta_empleado',[AllControler::class, 'insertaEmpleado'] );
+Route::post('/inserta_propiedades',[AllControler::class, 'insertaPropiedades'] );
 
 // Route::get('/todos', [AllControler::class, 'index2']);
 
