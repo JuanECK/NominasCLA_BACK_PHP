@@ -47,4 +47,24 @@ class CLA {
 
     }
 
+    public function SetBuscaEmpPropidades(){
+
+        if ( $this -> conn === null ){
+        die(json_encode(("Error: La conexión no se ha inicializado correctamente.")));
+        }
+
+        // Obtiene el contenido bruto de la petición
+        $json = file_get_contents('php://input');
+
+        // Decodifica el JSON a un array asociativo
+        $data = json_decode($json, true);
+
+        // Ahora puedes acceder a la llave
+        $datosbusqueda = $data['empleado'] ?? null;
+
+        $sql = '';
+        // $datosbusqueda = json_decode( $_POST['empleado'], true );
+        return $datosbusqueda;
+    }
+
 }

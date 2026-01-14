@@ -23,6 +23,10 @@ class AllControler {
         return json_encode($conexionModelo -> SetInsertaPropiedades());
     }
     
+    public function buscaEmpPropidades(){
+        $conexionModelo = new CLA();
+        return json_encode( $conexionModelo -> SetBuscaEmpPropidades() );
+    }
     
     // public function index(){
         
