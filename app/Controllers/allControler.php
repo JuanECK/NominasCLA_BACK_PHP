@@ -27,6 +27,11 @@ class AllControler {
         $conexionModelo = new CLA();
         return json_encode( $conexionModelo -> SetBuscaEmpPropidades() );
     }
+
+    public function buscaEmpleadoEdicion(){
+        $conexionModelo = new CLA();
+        return json_encode( $conexionModelo -> SetbuscaEmpleadoEdicion() );
+    }
     
     // public function index(){
         

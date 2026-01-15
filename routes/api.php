@@ -8,6 +8,7 @@ use App\Controllers\AllControler;
 Route::post('/inserta_empleado',[AllControler::class, 'insertaEmpleado'] );
 Route::post('/inserta_propiedades',[AllControler::class, 'insertaPropiedades'] );
 Route::post('/buscaEmpPropidades',[AllControler::class, 'buscaEmpPropidades'] );
+Route::post('/buscaEmpleadoEdicion',[AllControler::class, 'buscaEmpleadoEdicion'] );
 
 // Route::get('/todos', [AllControler::class, 'index2']);
 
