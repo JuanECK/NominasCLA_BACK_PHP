@@ -28,17 +28,27 @@ class CLA {
             [ $codigo_empleado, $empleado, $estatus, $puesto, $departamento, $salario_dia, $sueldo_mensual, $RFC, $NSS, $CURP, $fecha_ingreso, $fecha_reingreso, $fecha_baja, $domicilio, $codigo_pos, $estado, $fecha_nacimiento, $_decimal, $edad, $telefono, $sexo, $estado_civil, $correo ] = $values;
     
              $sql = "CALL `inserta_empleado1`(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
-            // $stmt = $this -> conn -> prepare( $sql );
-            // $stmt->execute(array($codigo_empleado, $empleado, $estatus, $puesto, $departamento, $salario_dia, $sueldo_mensual, $RFC, $NSS, $CURP, $fecha_ingreso, $fecha_reingreso, $fecha_baja, $domicilio, $codigo_pos, $estado, $fecha_nacimiento, $_decimal, $edad, $telefono, $sexo, $estado_civil, $correo));
+            $stmt = $this -> conn -> prepare( $sql );
+            $stmt->execute(array($codigo_empleado, $empleado, $estatus, $puesto, $departamento, $salario_dia, $sueldo_mensual, $RFC, $NSS, $CURP, $fecha_ingreso, $fecha_reingreso, $fecha_baja, $domicilio, $codigo_pos, $estado, $fecha_nacimiento, $_decimal, $edad, $telefono, $sexo, $estado_civil, $correo));
             
-            $resp = ["status"=>200];
-            return  $resp ;
+            $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            return $resultado;
+            // $resp = ["status"=>200];
+            // return  $resp ;
 
         } catch(\PDOException $e) {
         // ESTO MOSTRARÁ EL ERROR REAL DE MYSQL
-            echo "<h3>Error de Base de Datos:</h3>";
-            echo "Mensaje: " . $e->getMessage() . "<br>";
-            echo "Código de error: " . $e->getCode();
+            // echo "<h3>Error de Base de Datos:</h3>";
+            // echo "Mensaje: " . $e->getMessage() . "<br>";
+            // echo "Código de error: " . $e->getCode();
+
+             // 1. Guardar el error detallado en el log del servidor (para el programador)
+            error_log("Error SQL [" . $e->getCode() . "]: " . $e->getMessage());
+             // 2. Limpiar el buffer de salida para no mostrar código roto al usuario
+            if (ob_get_length()) ob_clean();
+            //3. Responder con el numero 2 que significa que hubo un intento de duplicar el correo
+            return [['resultado'=>2]];
         }
     }
 
