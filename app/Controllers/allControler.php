@@ -32,7 +32,26 @@ class AllControler {
         $conexionModelo = new CLA();
         return json_encode( $conexionModelo -> SetbuscaEmpleadoEdicion() );
     }
+
+    public function actualizaAltaEmpleado(){
+        $conexionModelo = new CLA();
+        return json_encode( $conexionModelo -> SetActualizaAltaEmpleado() );
+    }
+
+    public function buscaPropiedadesEmpleado(){
+        $conexionModelo = new CLA();
+        return json_encode( $conexionModelo -> SetbuscaPropiedadesEmpleado() );
+    }
     
+    public function actualizaPropiedades(){
+        $conexionModelo = new CLA();
+        return json_encode( $conexionModelo -> SetactualizaPropiedades() );
+    }
+
+    public function buscaEmpleado_PT(){
+        $conexionModelo = new CLA();
+        return json_encode( $conexionModelo -> SetBuscaEmpleado_PT() );
+    }
     // public function index(){
         
     //     $conexionModelo = new Conexion();
